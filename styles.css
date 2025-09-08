@@ -642,7 +642,7 @@ body {
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    z-index: 1000;
+    z-index: 2000; /* Ensure navbar is above all content for tap events */
     transition: all 0.3s ease;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -675,6 +675,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    z-index: 2050; /* Keep menu above page content when fixed on mobile */
 }
 
 .nav-link {
@@ -770,6 +771,12 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    position: relative;      /* Create new stacking context for reliable taps */
+    z-index: 2100;           /* Above navbar contents */
+    pointer-events: auto;    /* Explicitly allow taps */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    padding: 8px;            /* Larger tap target */
 }
 
 .bar {
@@ -5849,6 +5856,7 @@ img[data-src].loaded {
         transition: 0.3s;
         box-shadow: 0 10px 27px var(--shadow);
         padding: 2rem 0;
+        z-index: 2050; /* Slide-over above content */
     }
     
     .nav-controls {
