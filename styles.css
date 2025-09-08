@@ -5635,6 +5635,11 @@ img[data-src].loaded {
     }
 }
 
+/* Disable social boxes and reading-time indicator globally */
+.footer-social, .share-buttons, .social-share-buttons, .share-btn, .reading-time {
+    display: none !important;
+}
+
 @media (max-width: 480px) {
     .contact-form-advanced {
         padding: 1rem;
