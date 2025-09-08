@@ -2222,14 +2222,14 @@ class SecurityManager {
         
         // Disable text selection on sensitive content
         document.addEventListener('selectstart', (e) => {
-            if (e.target.classList.contains('protected-content')) {
+            if (e.target && e.target.classList && e.target.classList.contains('protected-content')) {
                 e.preventDefault();
             }
         });
         
         // Disable drag and drop
         document.addEventListener('dragstart', (e) => {
-            if (e.target.classList.contains('protected-content')) {
+            if (e.target && e.target.classList && e.target.classList.contains('protected-content')) {
                 e.preventDefault();
             }
         });
@@ -2434,6 +2434,7 @@ class SEOOptimizer {
         this.setupUserEngagement();
         this.setupContentOptimization();
         // this.setupSocialSharing();
+
     }
     
     setupStructuredData() {
@@ -2930,7 +2931,7 @@ class SEOOptimizer {
         
         // Add click handlers
         shareButtons.addEventListener('click', (e) => {
-            if (e.target.classList.contains('share-btn')) {
+            if (e.target && e.target.classList && e.target.classList.contains('share-btn')) {
                 const platform = e.target.dataset.platform;
                 this.shareOnSocial(platform);
             }
