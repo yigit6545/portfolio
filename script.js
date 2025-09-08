@@ -1,16 +1,20 @@
-// Enhanced Theme Toggle
+// Enhanced Theme Toggle (guarded)
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
 // Check for saved theme preference or default to 'light'
-const currentTheme = localStorage.getItem('theme') || 'light';
-body.setAttribute('data-theme', currentTheme);
-
-// Update theme toggle icon
-updateThemeIcon(currentTheme);
+try {
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', currentTheme);
+    if (typeof updateThemeIcon === 'function') {
+        updateThemeIcon(currentTheme);
+    }
+} catch (e) {
+    body.setAttribute('data-theme', 'light');
+}
 
 // Enhanced theme toggle with animations
-themeToggle.addEventListener('click', () => {
+if (themeToggle) themeToggle.addEventListener('click', () => {
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
@@ -81,8 +85,8 @@ if (languageToggle) {
         langText.textContent = currentLang;
     }
 
-// Language content
-const translations = {
+// Language content (scoped fallback to avoid clobbering global translations.js)
+const inlineTranslations = {
     TR: {
         'nav-home': 'Ana Sayfa',
         'nav-about': 'Hakkımda',
@@ -115,8 +119,8 @@ function updateLanguage(lang) {
     const elements = document.querySelectorAll('[data-translate]');
     elements.forEach(element => {
         const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+        if (inlineTranslations[lang] && inlineTranslations[lang][key]) {
+            element.textContent = inlineTranslations[lang][key];
         }
     });
 }
@@ -133,6 +137,8 @@ function updateLanguage(lang) {
         // Update page content using translation system
         if (typeof updateLanguage === 'function') {
             updateLanguage(newLang);
+        } else {
+            updateLanguageLocal(newLang);
         }
         
         // Track language change
@@ -142,23 +148,44 @@ function updateLanguage(lang) {
     });
 }
 
-// Initialize language on page load
-const savedLang = localStorage.getItem('language') || 'TR';
-updateLanguage(savedLang);
+// Initialize language on page load (prefer global translations.js if present)
+try {
+    const savedLang = localStorage.getItem('language') || 'TR';
+    if (typeof updateLanguage === 'function') {
+        updateLanguage(savedLang);
+    } else if (typeof updateLanguageLocal === 'function') {
+        updateLanguageLocal(savedLang);
+    }
+} catch (e) {}
 
-// Mobile Navigation Toggle
+// Local updater as fallback only inside this file
+function updateLanguageLocal(lang) {
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (inlineTranslations[lang] && inlineTranslations[lang][key]) {
+            element.textContent = inlineTranslations[lang][key];
+        }
+    });
+}
+
+// Mobile Navigation Toggle (guarded)
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
 }));
 
 // Smooth scrolling for navigation links
@@ -275,16 +302,19 @@ window.addEventListener('load', () => {
     }
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const heroImage = document.querySelector('.hero-image');
-    
-    if (hero && heroImage) {
-        heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
+// Feature flags
+const ENABLE_PARALLAX = false; // Disable moving hero/floating cards on scroll
+
+// Parallax effect for hero section (disabled by flag)
+if (ENABLE_PARALLAX) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroImage = document.querySelector('.hero-image');
+        if (heroImage) {
+            heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
+}
 
 // Counter animation for stats
 function animateCounters() {
@@ -872,7 +902,7 @@ class AnimationController {
         this.setupScrollAnimations();
         this.setupHoverEffects();
         this.setupTextAnimations();
-        this.setupParallaxEffects();
+        if (ENABLE_PARALLAX) this.setupParallaxEffects();
         this.setupMagneticElements();
         this.setupLoadingAnimations();
     }
@@ -977,16 +1007,16 @@ class AnimationController {
     }
     
     setupParallaxEffects() {
+        if (!ENABLE_PARALLAX) return;
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.parallax');
-            
             parallaxElements.forEach(element => {
                 const speed = element.dataset.speed || 0.5;
                 const yPos = -(scrolled * speed);
                 element.style.transform = `translateY(${yPos}px)`;
             });
-        });
+        }, { passive: true });
     }
     
     setupMagneticElements() {
@@ -1291,7 +1321,9 @@ const eventOptimizer = new EventOptimizer();
 // Optimize scroll events
 const optimizedScrollHandler = eventOptimizer.throttle(() => {
     // Scroll-based animations and effects
-    animationController.setupParallaxEffects();
+    if (ENABLE_PARALLAX) {
+        animationController.setupParallaxEffects();
+    }
 }, 16, 'scroll'); // 60fps
 
 window.addEventListener('scroll', optimizedScrollHandler);
