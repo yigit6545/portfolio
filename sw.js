@@ -1,5 +1,5 @@
 // Service Worker for PWA functionality
-const CACHE_NAME = 'devportfolio-v4.0.0';
+const CACHE_NAME = 'devportfolio-v5.0.0';
 const STATIC_CACHE = 'static-v1.0.0';
 const DYNAMIC_CACHE = 'dynamic-v1.0.0';
 

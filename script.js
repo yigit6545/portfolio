@@ -1608,6 +1608,29 @@ class PWAFeatures {
 // Initialize PWA Features
 const pwaFeatures = new PWAFeatures();
 
+// Force cache clear for development
+if (window.location.hostname === 'portfolio-b0go.onrender.com') {
+    // Clear all caches
+    if ('caches' in window) {
+        caches.keys().then((cacheNames) => {
+            cacheNames.forEach((cacheName) => {
+                console.log('Clearing cache:', cacheName);
+                caches.delete(cacheName);
+            });
+        });
+    }
+    
+    // Unregister service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+            registrations.forEach((registration) => {
+                console.log('Unregistering service worker:', registration);
+                registration.unregister();
+            });
+        });
+    }
+}
+
 // Advanced Contact Form System
 class AdvancedContactForm {
     constructor() {
