@@ -768,14 +768,29 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 1000;
+    position: relative;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .bar {
     width: 25px;
     height: 3px;
-    background: #333;
+    background: var(--text-color);
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
 }
 
 /* Hero Section */
@@ -5842,6 +5857,11 @@ img[data-src].loaded {
         transition: 0.3s;
         box-shadow: 0 10px 27px var(--shadow);
         padding: 2rem 0;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
     }
     
     .nav-controls {
