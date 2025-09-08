@@ -2401,7 +2401,7 @@ class SEOOptimizer {
         this.setupPerformanceTracking();
         this.setupUserEngagement();
         this.setupContentOptimization();
-        this.setupSocialSharing();
+        // this.setupSocialSharing();
     }
     
     setupStructuredData() {
