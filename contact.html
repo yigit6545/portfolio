@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Frontend Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/translations.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">DevPortfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle">
+                    <span class="lang-text">TR</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">İletişim</h1>
+                <p class="page-subtitle">Benimle iletişime geçin</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Ana Sayfa</a>
+                    <span>/</span>
+                    <span>İletişim</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-detail">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <h2>Projenizi Birlikte Geliştirelim</h2>
+                        <p>
+                            Modern web teknolojileri ile hayalinizdeki projeyi gerçeğe dönüştürmek için 
+                            benimle iletişime geçin. Size en uygun çözümü sunmak için buradayım.
+                        </p>
+                    </div>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>developer@example.com</p>
+                                <span>7/24 yanıt veriyorum</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Telefon</h3>
+                                <p>+90 555 123 45 67</p>
+                                <span>Pazartesi - Cuma: 09:00 - 18:00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Konum</h3>
+                                <p>İstanbul, Türkiye</p>
+                                <span>Uzaktan çalışma mevcut</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Yanıt Süresi</h3>
+                                <p>24 saat içinde</p>
+                                <span>Genellikle 2-4 saat</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h3>Sosyal Medya</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Contact Form -->
+                <div class="contact-form-advanced">
+                    <div class="form-header">
+                        <h3>Proje Teklifi Al</h3>
+                        <p>Detaylı bilgi almak için formu doldurun, size özel teklif hazırlayalım</p>
+                    </div>
+                    
+                    <!-- Form Progress -->
+                    <div class="form-progress">
+                        <div class="form-progress-bar" id="form-progress-bar"></div>
+                    </div>
+                    
+                    <!-- Form Steps -->
+                    <div class="form-steps">
+                        <div class="form-step active" data-step="1">
+                            <div class="form-step-circle">1</div>
+                            <div class="form-step-label">Kişisel Bilgiler</div>
+                        </div>
+                        <div class="form-step" data-step="2">
+                            <div class="form-step-circle">2</div>
+                            <div class="form-step-label">Proje Detayları</div>
+                        </div>
+                        <div class="form-step" data-step="3">
+                            <div class="form-step-circle">3</div>
+                            <div class="form-step-label">İletişim Tercihleri</div>
+                        </div>
+                        <div class="form-step" data-step="4">
+                            <div class="form-step-circle">4</div>
+                            <div class="form-step-label">Gönder</div>
+                        </div>
+                    </div>
+                    
+                    <form class="advanced-form" id="contact-form-advanced">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step-content" data-step="1">
+                            <div class="form-row">
+                                <div class="form-group-advanced">
+                                    <label for="name">Ad Soyad <span class="required">*</span></label>
+                                    <input type="text" id="name" name="name" class="form-input-advanced" placeholder="Adınız ve soyadınız" required>
+                                    <div class="form-error-message" id="name-error"></div>
+                                </div>
+                                <div class="form-group-advanced">
+                                    <label for="email">Email <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" class="form-input-advanced" placeholder="email@example.com" required>
+                                    <div class="form-error-message" id="email-error"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group-advanced">
+                                    <label for="phone">Telefon</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input-advanced" placeholder="+90 555 123 45 67">
+                                    <div class="form-error-message" id="phone-error"></div>
+                                </div>
+                                <div class="form-group-advanced">
+                                    <label for="company">Şirket/Organizasyon</label>
+                                    <input type="text" id="company" name="company" class="form-input-advanced" placeholder="Şirket adınız">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- Step 2: Project Details -->
+                        <div class="form-step-content" data-step="2" style="display: none;">
+                            <div class="form-group-advanced">
+                                <label for="project-type">Proje Türü <span class="required">*</span></label>
+                                <select id="project-type" name="project_type" class="form-input-advanced form-select-advanced" required>
+                                    <option value="">Proje türünü seçin</option>
+                                    <option value="website">Kurumsal Website</option>
+                                    <option value="ecommerce">E-ticaret Sitesi</option>
+                                    <option value="webapp">Web Uygulaması</option>
+                                    <option value="mobile">Mobil Uygulama</option>
+                                    <option value="dashboard">Dashboard/Admin Panel</option>
+                                    <option value="other">Diğer</option>
+                                </select>
+                                <div class="form-error-message" id="project-type-error"></div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group-advanced">
+                                    <label for="budget">Bütçe Aralığı</label>
+                                    <select id="budget" name="budget" class="form-input-advanced form-select-advanced">
+                                        <option value="">Bütçe aralığı seçin</option>
+                                        <option value="5000-10000">5.000 - 10.000 TL</option>
+                                        <option value="10000-25000">10.000 - 25.000 TL</option>
+                                        <option value="25000-50000">25.000 - 50.000 TL</option>
+                                        <option value="50000+">50.000 TL+</option>
+                                    </select>
+                                </div>
+                                <div class="form-group-advanced">
+                                    <label for="timeline">Zaman Çizelgesi</label>
+                                    <select id="timeline" name="timeline" class="form-input-advanced form-select-advanced">
+                                        <option value="">Proje süresi</option>
+                                        <option value="1-month">1 ay</option>
+                                        <option value="2-3-months">2-3 ay</option>
+                                        <option value="3-6-months">3-6 ay</option>
+                                        <option value="6-months+">6 ay+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group-advanced">
+                                <label for="technologies">Tercih Edilen Teknolojiler</label>
+                                <input type="text" id="technologies" name="technologies" class="form-input-advanced" placeholder="React, Vue.js, Node.js, vb.">
+                            </div>
+                            
+                            <div class="form-group-advanced">
+                                <label for="message">Proje Detayları <span class="required">*</span></label>
+                                <textarea id="message" name="message" class="form-input-advanced form-textarea-advanced" placeholder="Projeniz hakkında detaylı bilgi verin..." required></textarea>
+                                <div class="form-character-count" id="message-count">0 / 1000</div>
+                                <div class="form-error-message" id="message-error"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Communication Preferences -->
+                        <div class="form-step-content" data-step="3" style="display: none;">
+                            <div class="form-group-advanced">
+                                <label for="preferred-contact">Tercih Edilen İletişim Yöntemi</label>
+                                <select id="preferred-contact" name="preferred_contact" class="form-input-advanced form-select-advanced">
+                                    <option value="email">Email</option>
+                                    <option value="phone">Telefon</option>
+                                    <option value="whatsapp">WhatsApp</option>
+                                    <option value="video-call">Video Görüşme</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group-advanced">
+                                <label for="best-time">En İyi İletişim Saati</label>
+                                <select id="best-time" name="best_time" class="form-input-advanced form-select-advanced">
+                                    <option value="">Saat seçin</option>
+                                    <option value="09:00-12:00">09:00 - 12:00</option>
+                                    <option value="12:00-15:00">12:00 - 15:00</option>
+                                    <option value="15:00-18:00">15:00 - 18:00</option>
+                                    <option value="18:00-21:00">18:00 - 21:00</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group-advanced">
+                                <label for="file-upload">Proje Dosyaları (Opsiyonel)</label>
+                                <div class="form-file-upload">
+                                    <input type="file" id="file-upload" name="files" class="form-file-input" multiple accept=".pdf,.doc,.docx,.jpg,.png,.zip">
+                                    <label for="file-upload" class="form-file-label" id="file-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Dosya yüklemek için tıklayın veya sürükleyin</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox">
+                                <label for="newsletter" class="form-checkbox-label">
+                                    Teknoloji bültenime abone olmak istiyorum
+                                </label>
+                            </div>
+                            
+                            <div class="form-checkbox-group">
+                                <input type="checkbox" id="privacy" name="privacy" class="form-checkbox" required>
+                                <label for="privacy" class="form-checkbox-label">
+                                    <a href="#" style="color: var(--primary-color);">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum <span class="required">*</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4: Submit -->
+                        <div class="form-step-content" data-step="4" style="display: none;">
+                            <div class="form-summary">
+                                <h4>Gönderilecek Bilgiler</h4>
+                                <div id="form-summary-content"></div>
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- Form Actions -->
+                        <div class="form-submit-section">
+                            <button type="button" class="form-reset-btn" id="form-reset">
+                                <i class="fas fa-undo"></i> Sıfırla
+                            </button>
+                            <div class="form-navigation">
+                                <button type="button" class="form-reset-btn" id="form-prev" style="display: none;">
+                                    <i class="fas fa-arrow-left"></i> Geri
+                                </button>
+                                <button type="button" class="form-submit-btn" id="form-next">
+                                    İleri <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <button type="submit" class="form-submit-btn" id="form-submit" style="display: none;">
+                                    <i class="fas fa-paper-plane"></i> Gönder
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sık Sorulan Sorular</h2>
+                <p class="section-subtitle">Merak ettiğiniz konular hakkında bilgi alın</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Proje süresi ne kadar?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Proje süresi projenin karmaşıklığına göre değişir. Basit web siteleri 1-2 hafta, e-ticaret platformları 1-2 ay sürebilir. Detaylı süre için proje analizi yaparım.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Hangi teknolojileri kullanıyorsunuz?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>React, Vue.js, Angular gibi modern framework'ler, Node.js, Express.js backend teknolojileri, MongoDB, PostgreSQL veritabanları ve AWS, Vercel gibi cloud servisleri kullanıyorum.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Proje sonrası destek veriyor musunuz?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, tüm projelerimde belirli bir süre ücretsiz destek veriyorum. Ayrıca aylık bakım paketleri de sunuyorum.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Ödeme nasıl yapılıyor?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Projeler genellikle %50 başlangıç, %50 teslim şeklinde ödenir. Büyük projelerde ara ödemeler de yapılabilir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>SEO optimizasyonu dahil mi?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tüm web projelerimde temel SEO optimizasyonu dahildir. İleri seviye SEO hizmetleri ayrı olarak sunulur.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Responsive tasarım dahil mi?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, tüm projelerimde mobile-first yaklaşımla responsive tasarım dahildir. Tüm cihazlarda mükemmel görünüm garantisi veriyorum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Hemen Başlayalım</h2>
+                <p>Projenizi hayata geçirmek için ilk adımı atın.</p>
+                <div class="cta-buttons">
+                    <a href="#contact-form" class="btn btn-primary">Formu Doldur</a>
+                    <a href="projects.html" class="btn btn-secondary">Projelerimi Gör</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const icon = this.querySelector('i');
+                    
+                    // Close other open FAQs
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== this) {
+                            const otherFaqItem = otherQuestion.parentElement;
+                            const otherAnswer = otherFaqItem.querySelector('.faq-answer');
+                            const otherIcon = otherQuestion.querySelector('i');
+                            
+                            otherFaqItem.classList.remove('active');
+                            otherAnswer.style.maxHeight = null;
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    faqItem.classList.toggle('active');
+                    
+                    if (faqItem.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        answer.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.subject || !data.message) {
+                alert('Lütfen tüm zorunlu alanları doldurun.');
+                return;
+            }
+            
+            if (!data.privacy) {
+                alert('Gizlilik politikasını kabul etmelisiniz.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

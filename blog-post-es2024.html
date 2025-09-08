@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES2024'te Gelen Yeni Özellikler - Frontend Developer Blog</title>
+    <meta name="description" content="JavaScript'in en son versiyonunda hangi yeni özellikler var? Array methods, Object destructuring ve daha fazlası.">
+    <meta name="keywords" content="es2024, javascript, new features, array methods, frontend">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">DevPortfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle">
+                    <span class="lang-text">TR</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Ana Sayfa</a>
+                    <span>/</span>
+                    <a href="blog.html">Blog</a>
+                    <span>/</span>
+                    <span>ES2024 Yeni Özellikler</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Content -->
+    <section class="blog-post-detail">
+        <div class="container">
+            <div class="blog-post-layout">
+                <!-- Main Content -->
+                <article class="blog-post-main">
+                    <!-- Post Header -->
+                    <header class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">JavaScript</span>
+                            <span class="post-date">10 Aralık 2024</span>
+                            <span class="post-read-time">5 dk okuma</span>
+                        </div>
+                        <h1 class="post-title">ES2024'te Gelen Yeni Özellikler</h1>
+                        <div class="post-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <span class="author-name">Frontend Developer</span>
+                                <span class="author-title">Senior Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">ES2024</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">New Features</span>
+                        </div>
+                    </header>
+
+                    <!-- Post Image -->
+                    <div class="post-image">
+                        <div class="post-placeholder">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-intro">
+                            <p class="lead">
+                                JavaScript'in en son versiyonu ES2024, geliştiricilere yeni araçlar ve özellikler sunuyor. 
+                                Bu yazıda ES2024'te gelen en önemli yenilikleri inceleyeceğiz.
+                            </p>
+                        </div>
+
+                        <h2>Array.prototype.toSorted()</h2>
+                        <p>
+                            Yeni toSorted() metodu, orijinal array'i değiştirmeden sıralanmış bir kopya döndürür.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">toSorted() Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>const numbers = [3, 1, 4, 1, 5];
+const sorted = numbers.toSorted();
+console.log(sorted); // [1, 1, 3, 4, 5]
+console.log(numbers); // [3, 1, 4, 1, 5] - orijinal değişmedi</code></pre>
+                        </div>
+
+                        <h2>Array.prototype.toReversed()</h2>
+                        <p>
+                            toReversed() metodu, array'i ters çevirir ancak orijinal array'i değiştirmez.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">toReversed() Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>const fruits = ['apple', 'banana', 'cherry'];
+const reversed = fruits.toReversed();
+console.log(reversed); // ['cherry', 'banana', 'apple']
+console.log(fruits); // ['apple', 'banana', 'cherry'] - orijinal değişmedi</code></pre>
+                        </div>
+
+                        <h2>Array.prototype.with()</h2>
+                        <p>
+                            with() metodu, belirtilen indeksteki elementi değiştirir ve yeni bir array döndürür.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">with() Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>const colors = ['red', 'green', 'blue'];
+const newColors = colors.with(1, 'yellow');
+console.log(newColors); // ['red', 'yellow', 'blue']
+console.log(colors); // ['red', 'green', 'blue'] - orijinal değişmedi</code></pre>
+                        </div>
+
+                        <h2>Object.groupBy()</h2>
+                        <p>
+                            Object.groupBy() metodu, array elementlerini belirtilen fonksiyona göre gruplar.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Object.groupBy() Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>const inventory = [
+  { name: 'asparagus', type: 'vegetables', quantity: 5 },
+  { name: 'bananas', type: 'fruit', quantity: 0 },
+  { name: 'goat', type: 'meat', quantity: 23 },
+  { name: 'cherries', type: 'fruit', quantity: 5 }
+];
+
+const grouped = Object.groupBy(inventory, ({ type }) => type);
+console.log(grouped);
+// {
+//   vegetables: [{ name: 'asparagus', type: 'vegetables', quantity: 5 }],
+//   fruit: [
+//     { name: 'bananas', type: 'fruit', quantity: 0 },
+//     { name: 'cherries', type: 'fruit', quantity: 5 }
+//   ],
+//   meat: [{ name: 'goat', type: 'meat', quantity: 23 }]
+// }</code></pre>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Önemli Not</h3>
+                                <p>
+                                    Bu özellikler henüz tüm tarayıcılarda desteklenmeyebilir. 
+                                    Production'da kullanmadan önce browser compatibility'yi kontrol edin.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2>Sonuç</h2>
+                        <p>
+                            ES2024, JavaScript'e güçlü yeni özellikler ekliyor. Bu özellikler özellikle 
+                            immutable programming ve data manipulation konularında büyük kolaylık sağlıyor.
+                        </p>
+
+                        <div class="conclusion-box">
+                            <h3>Özet</h3>
+                            <ul>
+                                <li>toSorted() - Immutable array sorting</li>
+                                <li>toReversed() - Immutable array reversing</li>
+                                <li>with() - Immutable array element replacement</li>
+                                <li>Object.groupBy() - Array grouping</li>
+                                <li>Daha iyi immutable programming desteği</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Post Footer -->
+                    <footer class="post-footer">
+                        <div class="post-share">
+                            <h3>Bu yazıyı paylaş</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn twitter">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                                <a href="#" class="share-btn linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="#" class="share-btn facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="post-navigation">
+                            <a href="blog-post-vue-3.html" class="nav-link prev">
+                                <i class="fas fa-arrow-left"></i>
+                                <div class="nav-content">
+                                    <span class="nav-label">Önceki Yazı</span>
+                                    <span class="nav-title">Vue 3 Composition API</span>
+                                </div>
+                            </a>
+                            <a href="blog-post-css-grid.html" class="nav-link next">
+                                <div class="nav-content">
+                                    <span class="nav-label">Sonraki Yazı</span>
+                                    <span class="nav-title">CSS Grid vs Flexbox</span>
+                                </div>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </footer>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Table of Contents -->
+                    <div class="sidebar-widget">
+                        <h3>İçindekiler</h3>
+                        <nav class="table-of-contents">
+                            <ul>
+                                <li><a href="#toSorted">Array.prototype.toSorted()</a></li>
+                                <li><a href="#toReversed">Array.prototype.toReversed()</a></li>
+                                <li><a href="#with">Array.prototype.with()</a></li>
+                                <li><a href="#groupBy">Object.groupBy()</a></li>
+                                <li><a href="#conclusion">Sonuç</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Related Posts -->
+                    <div class="sidebar-widget">
+                        <h3>İlgili Yazılar</h3>
+                        <div class="related-posts">
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>Async/Await vs Promises</h4>
+                                    <span class="related-post-date">1 Aralık 2024</span>
+                                </div>
+                            </div>
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>React 18'de Yeni Özellikler</h4>
+                                    <span class="related-post-date">15 Aralık 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Newsletter</h3>
+                        <p>Yeni yazılarımdan haberdar olmak için abone olun.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email adresiniz" required>
+                            <button type="submit">Abone Ol</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        }
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                alert('Newsletter\'a başarıyla abone oldunuz!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 18'de Yeni Özellikler ve Concurrent Rendering - Frontend Developer Blog</title>
+    <meta name="description" content="React 18'in getirdiği Concurrent Rendering, Suspense ve Server Components gibi yeni özellikler frontend development'ı nasıl değiştiriyor? Detaylı inceleme.">
+    <meta name="keywords" content="react 18, concurrent rendering, suspense, server components, frontend, javascript">
+    <meta name="author" content="Frontend Developer">
+    <meta property="og:title" content="React 18'de Yeni Özellikler ve Concurrent Rendering">
+    <meta property="og:description" content="React 18'in getirdiği yeni özellikler ve Concurrent Rendering hakkında detaylı rehber.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://devportfolio.com/blog-post-react-18.html">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">DevPortfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle">
+                    <span class="lang-text">TR</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Ana Sayfa</a>
+                    <span>/</span>
+                    <a href="blog.html">Blog</a>
+                    <span>/</span>
+                    <span>React 18'de Yeni Özellikler</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Content -->
+    <section class="blog-post-detail">
+        <div class="container">
+            <div class="blog-post-layout">
+                <!-- Main Content -->
+                <article class="blog-post-main">
+                    <!-- Post Header -->
+                    <header class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">React</span>
+                            <span class="post-date">15 Aralık 2024</span>
+                            <span class="post-read-time">8 dk okuma</span>
+                        </div>
+                        <h1 class="post-title">React 18'de Yeni Özellikler ve Concurrent Rendering</h1>
+                        <div class="post-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <span class="author-name">Frontend Developer</span>
+                                <span class="author-title">Senior Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">React 18</span>
+                            <span class="tag">Concurrent Rendering</span>
+                            <span class="tag">Suspense</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                    </header>
+
+                    <!-- Post Image -->
+                    <div class="post-image">
+                        <div class="post-placeholder">
+                            <i class="fab fa-react"></i>
+                        </div>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-intro">
+                            <p class="lead">
+                                React 18, frontend development dünyasında büyük bir devrim yarattı. 
+                                Concurrent Rendering, Suspense ve Server Components gibi yeni özellikler 
+                                ile React uygulamaları artık daha hızlı, daha responsive ve daha kullanıcı dostu.
+                            </p>
+                        </div>
+
+                        <h2>Concurrent Rendering Nedir?</h2>
+                        <p>
+                            Concurrent Rendering, React'in en büyük yeniliklerinden biri. Bu özellik sayesinde 
+                            React, render işlemini kesintiye uğratabilir ve daha önemli güncellemelere öncelik verebilir. 
+                            Bu da kullanıcı deneyimini önemli ölçüde iyileştirir.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">React 18 Concurrent Rendering Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>import { createRoot } from 'react-dom/client';
+import { StrictMode } from 'react';
+
+// React 18'de yeni root API
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  &lt;StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/StrictMode&gt;
+);</code></pre>
+                        </div>
+
+                        <h2>Suspense ile Veri Fetching</h2>
+                        <p>
+                            React 18'de Suspense artık sadece lazy loading için değil, veri fetching için de kullanılabilir. 
+                            Bu sayede loading state'lerini daha kolay yönetebiliriz.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Suspense ile Veri Fetching</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>function UserProfile({ userId }) {
+  const user = use(fetchUser(userId));
+  
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;{user.name}&lt;/h1&gt;
+      &lt;p&gt;{user.email}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;Suspense fallback={&lt;Loading /&gt;}&gt;
+      &lt;UserProfile userId={123} /&gt;
+    &lt;/Suspense&gt;
+  );
+}</code></pre>
+                        </div>
+
+                        <h2>Server Components</h2>
+                        <p>
+                            Server Components, React'in sunucu tarafında render edilebilen component'larıdır. 
+                            Bu sayede bundle size'ı küçültebilir ve performansı artırabiliriz.
+                        </p>
+
+                        <div class="info-box">
+                            <div class="info-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Önemli Not</h3>
+                                <p>
+                                    Server Components henüz Next.js 13+ ile kullanılabilir durumda. 
+                                    Standalone React uygulamalarında henüz mevcut değil.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2>Automatic Batching</h2>
+                        <p>
+                            React 18'de state güncellemeleri otomatik olarak batch'lenir. 
+                            Bu da gereksiz re-render'ları önler ve performansı artırır.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Automatic Batching Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>function App() {
+  const [count, setCount] = useState(0);
+  const [flag, setFlag] = useState(false);
+
+  function handleClick() {
+    // React 18'de bu güncellemeler otomatik olarak batch'lenir
+    setCount(c => c + 1);
+    setFlag(f => !f);
+    // Sadece bir re-render olur
+  }
+
+  return (
+    &lt;div&gt;
+      &lt;button onClick={handleClick}&gt;
+        Count: {count}, Flag: {flag.toString()}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+
+                        <h2>useId Hook</h2>
+                        <p>
+                            useId hook'u, server ve client tarafında tutarlı ID'ler oluşturmak için kullanılır. 
+                            Özellikle accessibility için önemlidir.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">useId Hook Kullanımı</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>function NameFields() {
+  const id = useId();
+  
+  return (
+    &lt;div&gt;
+      &lt;label htmlFor={`${id}-firstName`}&gt;First Name&lt;/label&gt;
+      &lt;input id={`${id}-firstName`} type="text" /&gt;
+      
+      &lt;label htmlFor={`${id}-lastName`}&gt;Last Name&lt;/label&gt;
+      &lt;input id={`${id}-lastName`} type="text" /&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+
+                        <h2>Sonuç</h2>
+                        <p>
+                            React 18, frontend development'ı bir üst seviyeye taşıyor. Concurrent Rendering ile 
+                            daha responsive uygulamalar, Suspense ile daha iyi loading state yönetimi ve 
+                            Server Components ile daha iyi performans elde edebiliriz.
+                        </p>
+
+                        <div class="conclusion-box">
+                            <h3>Özet</h3>
+                            <ul>
+                                <li>Concurrent Rendering ile daha responsive uygulamalar</li>
+                                <li>Suspense ile gelişmiş veri fetching</li>
+                                <li>Server Components ile daha iyi performans</li>
+                                <li>Automatic Batching ile optimize edilmiş re-render'lar</li>
+                                <li>useId ile tutarlı ID yönetimi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Post Footer -->
+                    <footer class="post-footer">
+                        <div class="post-share">
+                            <h3>Bu yazıyı paylaş</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn twitter">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                                <a href="#" class="share-btn linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="#" class="share-btn facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="post-navigation">
+                            <a href="blog-post-vue-3.html" class="nav-link prev">
+                                <i class="fas fa-arrow-left"></i>
+                                <div class="nav-content">
+                                    <span class="nav-label">Önceki Yazı</span>
+                                    <span class="nav-title">Vue 3 Composition API</span>
+                                </div>
+                            </a>
+                            <a href="blog-post-css-grid.html" class="nav-link next">
+                                <div class="nav-content">
+                                    <span class="nav-label">Sonraki Yazı</span>
+                                    <span class="nav-title">CSS Grid vs Flexbox</span>
+                                </div>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </footer>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Table of Contents -->
+                    <div class="sidebar-widget">
+                        <h3>İçindekiler</h3>
+                        <nav class="table-of-contents">
+                            <ul>
+                                <li><a href="#concurrent-rendering">Concurrent Rendering Nedir?</a></li>
+                                <li><a href="#suspense">Suspense ile Veri Fetching</a></li>
+                                <li><a href="#server-components">Server Components</a></li>
+                                <li><a href="#automatic-batching">Automatic Batching</a></li>
+                                <li><a href="#useid-hook">useId Hook</a></li>
+                                <li><a href="#conclusion">Sonuç</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Related Posts -->
+                    <div class="sidebar-widget">
+                        <h3>İlgili Yazılar</h3>
+                        <div class="related-posts">
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>React Performance Optimizasyonu</h4>
+                                    <span class="related-post-date">3 Aralık 2024</span>
+                                </div>
+                            </div>
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>ES2024'te Gelen Yeni Özellikler</h4>
+                                    <span class="related-post-date">10 Aralık 2024</span>
+                                </div>
+                            </div>
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>CSS Grid vs Flexbox</h4>
+                                    <span class="related-post-date">8 Aralık 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Newsletter</h3>
+                        <p>Yeni yazılarımdan haberdar olmak için abone olun.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email adresiniz" required>
+                            <button type="submit">Abone Ol</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        }
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                alert('Newsletter\'a başarıyla abone oldunuz!');
+                this.reset();
+            }
+        });
+
+        // Table of contents smooth scroll
+        document.querySelectorAll('.table-of-contents a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hizmetlerim - Frontend Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">DevPortfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link active" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle">
+                    <span class="lang-text">TR</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">Hizmetlerim</h1>
+                <p class="page-subtitle">Size nasıl yardımcı olabilirim</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Ana Sayfa</a>
+                    <span>/</span>
+                    <span>Hizmetler</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h2>Modern Web Çözümleri</h2>
+                    <p>
+                        3+ yıllık deneyimimle modern web teknolojileri kullanarak 
+                        kullanıcı dostu ve görsel olarak etkileyici web uygulamaları geliştiriyorum. 
+                        Her projede en iyi kullanıcı deneyimini sunmayı hedefliyorum.
+                    </p>
+                    <div class="overview-stats">
+                        <div class="overview-stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Tamamlanan Proje</span>
+                        </div>
+                        <div class="overview-stat">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Mutlu Müşteri</span>
+                        </div>
+                        <div class="overview-stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Müşteri Memnuniyeti</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <div class="image-container">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-detail">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Hizmet Detayları</h2>
+                <p class="section-subtitle">Sunmuş olduğum tüm hizmetler</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Geliştirme</h3>
+                        <p>Modern, responsive ve kullanıcı dostu web siteleri ve web uygulamaları geliştiriyorum.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Responsive Tasarım</li>
+                            <li><i class="fas fa-check"></i> Modern Framework'ler</li>
+                            <li><i class="fas fa-check"></i> SEO Optimizasyonu</li>
+                            <li><i class="fas fa-check"></i> Hızlı Yükleme</li>
+                            <li><i class="fas fa-check"></i> Cross-Browser Uyumlu</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">₺2,500</span>
+                            <span class="price-period">'den başlayan fiyatlar</span>
+                        </div>
+                        <div class="service-action">
+                            <a href="contact.html" class="btn btn-primary">Teklif Al</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Mobil Uyumlu Tasarım</h3>
+                        <p>Tüm cihazlarda mükemmel görünen, mobil öncelikli tasarımlar oluşturuyorum.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Mobile First</li>
+                            <li><i class="fas fa-check"></i> Cross-Browser Uyumlu</li>
+                            <li><i class="fas fa-check"></i> Touch Friendly</li>
+                            <li><i class="fas fa-check"></i> Performance Optimized</li>
+                            <li><i class="fas fa-check"></i> Progressive Web App</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">₺1,500</span>
+                            <span class="price-period">'den başlayan fiyatlar</span>
+                        </div>
+                        <div class="service-action">
+                            <a href="contact.html" class="btn btn-primary">Teklif Al</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>E-Ticaret Çözümleri</h3>
+                        <p>Güvenli, hızlı ve kullanıcı dostu e-ticaret platformları geliştiriyorum.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Güvenli Ödeme</li>
+                            <li><i class="fas fa-check"></i> Stok Yönetimi</li>
+                            <li><i class="fas fa-check"></i> Admin Panel</li>
+                            <li><i class="fas fa-check"></i> Analytics Entegrasyonu</li>
+                            <li><i class="fas fa-check"></i> Multi-Language Support</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">₺5,000</span>
+                            <span class="price-period">'den başlayan fiyatlar</span>
+                        </div>
+                        <div class="service-action">
+                            <a href="contact.html" class="btn btn-primary">Teklif Al</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>UI/UX Tasarım</h3>
+                        <p>Kullanıcı deneyimini ön planda tutan, modern ve etkileyici arayüz tasarımları.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Wireframing</li>
+                            <li><i class="fas fa-check"></i> Prototyping</li>
+                            <li><i class="fas fa-check"></i> User Research</li>
+                            <li><i class="fas fa-check"></i> Design Systems</li>
+                            <li><i class="fas fa-check"></i> Usability Testing</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">₺3,000</span>
+                            <span class="price-period">'den başlayan fiyatlar</span>
+                        </div>
+                        <div class="service-action">
+                            <a href="contact.html" class="btn btn-primary">Teklif Al</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Bakım & Destek</h3>
+                        <p>Mevcut web sitenizin bakımı, güncellemeleri ve teknik destek hizmetleri.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Günlük Backup</li>
+                            <li><i class="fas fa-check"></i> Güvenlik Güncellemeleri</li>
+                            <li><i class="fas fa-check"></i> Performance Monitoring</li>
+                            <li><i class="fas fa-check"></i> 7/24 Destek</li>
+                            <li><i class="fas fa-check"></i> Bug Fixes</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">₺500</span>
+                            <span class="price-period">/ay</span>
+                        </div>
+                        <div class="service-action">
+                            <a href="contact.html" class="btn btn-primary">Teklif Al</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Performans Optimizasyonu</h3>
+                        <p>Web sitenizin hızını artırıp, kullanıcı deneyimini iyileştiriyorum.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Speed Optimization</li>
+                            <li><i class="fas fa-check"></i> Image Compression</li>
+                            <li><i class="fas fa-check"></i> Code Minification</li>
+                            <li><i class="fas fa-check"></i> CDN Setup</li>
+                            <li><i class="fas fa-check"></i> Database Optimization</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">₺1,000</span>
+                            <span class="price-period">'den başlayan fiyatlar</span>
+                        </div>
+                        <div class="service-action">
+                            <a href="contact.html" class="btn btn-primary">Teklif Al</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Fiyatlandırma</h2>
+                <p class="section-subtitle">İhtiyacınıza uygun paket seçin</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="pricing-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">2,500</span>
+                            <span class="period">/proje</span>
+                        </div>
+                        <p class="pricing-description">Küçük işletmeler için ideal</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Responsive Web Sitesi</li>
+                            <li><i class="fas fa-check"></i> 5 Sayfa</li>
+                            <li><i class="fas fa-check"></i> SEO Optimizasyonu</li>
+                            <li><i class="fas fa-check"></i> Contact Form</li>
+                            <li><i class="fas fa-check"></i> 1 Ay Destek</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-action">
+                        <a href="contact.html" class="btn btn-outline">Seç</a>
+                    </div>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Popüler</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="pricing-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">5,000</span>
+                            <span class="period">/proje</span>
+                        </div>
+                        <p class="pricing-description">Orta ölçekli işletmeler için</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> E-Ticaret Platformu</li>
+                            <li><i class="fas fa-check"></i> 15 Sayfa</li>
+                            <li><i class="fas fa-check"></i> Admin Panel</li>
+                            <li><i class="fas fa-check"></i> Payment Integration</li>
+                            <li><i class="fas fa-check"></i> 3 Ay Destek</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-action">
+                        <a href="contact.html" class="btn btn-primary">Seç</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">10,000</span>
+                            <span class="period">/proje</span>
+                        </div>
+                        <p class="pricing-description">Büyük projeler için</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Custom Web Application</li>
+                            <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                            <li><i class="fas fa-check"></i> Advanced Features</li>
+                            <li><i class="fas fa-check"></i> API Integration</li>
+                            <li><i class="fas fa-check"></i> 6 Ay Destek</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-action">
+                        <a href="contact.html" class="btn btn-outline">Seç</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Çalışma Süreci</h2>
+                <p class="section-subtitle">Projelerinizi nasıl geliştiriyorum</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Keşif & Planlama</h3>
+                        <p>Projenizin gereksinimlerini analiz eder, teknik spesifikasyonları belirlerim.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Tasarım & Prototip</h3>
+                        <p>Kullanıcı deneyimini ön planda tutarak wireframe ve mockup'lar oluştururum.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Geliştirme</h3>
+                        <p>Modern teknolojiler kullanarak responsive ve performanslı kod yazarım.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Test & Optimizasyon</h3>
+                        <p>Kapsamlı testler yapar, performans optimizasyonu ve bug düzeltmeleri yaparım.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Yayın & Destek</h3>
+                        <p>Projeyi yayınlar, gerekli eğitimleri verir ve sürekli destek sağlarım.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Projenizi Birlikte Başlatalım</h2>
+                <p>Modern web teknolojileri ile hayalinizdeki projeyi gerçeğe dönüştürelim.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Ücretsiz Teklif Al</a>
+                    <a href="projects.html" class="btn btn-secondary">Projelerimi Gör</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

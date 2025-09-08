@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer Portfolio - Modern Web Tasarım ve Geliştirme</title>
+    <!-- Advanced SEO Meta Tags -->
+    <meta name="description" content="Profesyonel Frontend Developer Portfolio. React, Vue.js, JavaScript ile modern web uygulamaları geliştiriyorum. Responsive tasarım, performans optimizasyonu ve kullanıcı deneyimi odaklı çözümler. 3+ yıl deneyim.">
+    <meta name="keywords" content="frontend developer, react developer, vue.js developer, javascript developer, web developer, portfolio, responsive design, UI/UX, modern web development, frontend engineer, web applications, mobile-first design, css3, html5">
+    <meta name="author" content="Frontend Developer">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="Turkish">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="msapplication-TileColor" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="DevPortfolio">
+    
+    <!-- Language and Location -->
+    <meta name="geo.region" content="TR-34">
+    <meta name="geo.placename" content="Istanbul">
+    <meta name="geo.position" content="41.0082;28.9784">
+    <meta name="ICBM" content="41.0082, 28.9784">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="rating" content="General">
+    <meta name="distribution" content="Global">
+    <meta name="expires" content="never">
+    <meta name="classification" content="Portfolio">
+    <meta name="category" content="Web Development">
+    <meta name="coverage" content="Worldwide">
+    <meta name="target" content="all">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Advanced Open Graph Meta Tags -->
+    <meta property="og:title" content="Frontend Developer Portfolio - Modern Web Uygulamaları">
+    <meta property="og:description" content="Profesyonel Frontend Developer. React, Vue.js, JavaScript ile modern web uygulamaları geliştiriyorum. 3+ yıl deneyim, responsive tasarım ve kullanıcı deneyimi odaklı projeler.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devportfolio.com">
+    <meta property="og:image" content="https://devportfolio.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Frontend Developer Portfolio - Modern Web Development">
+    <meta property="og:site_name" content="DevPortfolio">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Advanced Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@devportfolio">
+    <meta name="twitter:creator" content="@devportfolio">
+    <meta name="twitter:title" content="Frontend Developer Portfolio - Modern Web Uygulamaları">
+    <meta name="twitter:description" content="Profesyonel Frontend Developer. React, Vue.js, JavaScript ile modern web uygulamaları geliştiriyorum. 3+ yıl deneyim.">
+    <meta name="twitter:image" content="https://devportfolio.com/images/twitter-card.jpg">
+    <meta name="twitter:image:alt" content="Frontend Developer Portfolio">
+    
+    <!-- LinkedIn Meta Tags -->
+    <meta property="linkedin:owner" content="frontend-developer">
+    
+    <!-- Pinterest Meta Tags -->
+    <meta name="pinterest-rich-pin" content="true">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Frontend Developer",
+        "jobTitle": "Frontend Developer",
+        "description": "Profesyonel Frontend Developer. React, Vue.js, JavaScript ile modern web uygulamaları geliştiriyorum.",
+        "url": "https://devportfolio.com",
+        "image": "https://devportfolio.com/images/profile.jpg",
+        "sameAs": [
+            "https://github.com/devportfolio",
+            "https://linkedin.com/in/devportfolio",
+            "https://twitter.com/devportfolio"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Istanbul",
+            "addressCountry": "TR"
+        },
+        "knowsAbout": [
+            "React",
+            "Vue.js",
+            "JavaScript",
+            "HTML5",
+            "CSS3",
+            "Web Development",
+            "Frontend Development",
+            "Responsive Design",
+            "UI/UX Design"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Frontend Developer",
+            "description": "Modern web teknolojileri ile kullanıcı dostu web uygulamaları geliştirme",
+            "skills": ["React", "Vue.js", "JavaScript", "HTML5", "CSS3", "Responsive Design"]
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance Developer"
+        }
+    }
+    </script>
+    
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "DevPortfolio",
+        "url": "https://devportfolio.com",
+        "description": "Profesyonel Frontend Developer Portfolio",
+        "author": {
+            "@type": "Person",
+            "name": "Frontend Developer"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://devportfolio.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Portfolio Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Frontend Developer Portfolio",
+        "description": "Modern web teknolojileri ile geliştirilmiş projeler",
+        "creator": {
+            "@type": "Person",
+            "name": "Frontend Developer"
+        },
+        "dateCreated": "2024",
+        "genre": "Web Development",
+        "keywords": "frontend development, react, vue.js, javascript, web applications"
+    }
+    </script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://devportfolio.com">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="DevPortfolio">
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
+    
+    <!-- Favicon removed to prevent console errors -->
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/hero-bg.svg" as="image">
+    <link rel="preload" href="images/profile.svg" as="image">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/translations.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            page_title: 'Frontend Developer Portfolio',
+            page_location: window.location.href,
+            custom_map: {
+                'custom_parameter_1': 'portfolio_visitor',
+                'custom_parameter_2': 'frontend_developer'
+            }
+        });
+    </script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Frontend Developer",
+        "jobTitle": "Senior Frontend Developer",
+        "description": "Profesyonel Frontend Developer. React, Vue.js, JavaScript ile modern web uygulamaları geliştiriyorum.",
+        "url": "https://devportfolio.com",
+        "image": "https://devportfolio.com/images/profile.jpg",
+        "sameAs": [
+            "https://linkedin.com/in/frontend-developer",
+            "https://github.com/frontend-developer",
+            "https://twitter.com/frontend-dev"
+        ],
+        "knowsAbout": [
+            "React",
+            "Vue.js",
+            "JavaScript",
+            "TypeScript",
+            "CSS",
+            "HTML",
+            "Web Development",
+            "Frontend Development",
+            "Responsive Design",
+            "Performance Optimization"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Frontend Developer",
+            "description": "Modern web uygulamaları geliştirme ve kullanıcı deneyimi tasarımı"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance Developer"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link" data-translate="nav-skills">Yetenekler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+                        <div class="nav-controls">
+                            <button class="theme-toggle" id="theme-toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                            <button class="language-toggle" id="language-toggle">
+                                <span class="lang-text">TR</span>
+                            </button>
+                            <a href="admin/index.html" class="admin-link" title="Admin Panel">
+                                <i class="fas fa-cog"></i>
+                            </a>
+                        </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                    <h1 class="hero-title text-reveal" data-translate="hero-title">
+                        <span class="gradient-text" data-aos="fade-up" data-aos-delay="400">Merhaba,</span><br>
+                        Ben <span class="highlight" data-aos="fade-up" data-aos-delay="600">Frontend Developer</span>
+                    </h1>
+                    <p class="hero-description" data-translate="hero-description" data-aos="fade-up" data-aos-delay="800">
+                        Modern web teknolojileri ile kullanıcı deneyimini ön planda tutan,
+                        yaratıcı ve fonksiyonel web uygulamaları geliştiriyorum.
+                    </p>
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1000">
+                        <a href="#projects" class="btn btn-primary magnetic hover-lift" data-translate="hero-projects">Projelerimi Gör</a>
+                        <a href="#contact" class="btn btn-secondary magnetic hover-lift" data-translate="hero-contact">İletişime Geç</a>
+                        <a href="#" class="btn btn-download magnetic hover-lift" id="download-cv" data-translate="hero-download">
+                            <i class="fas fa-download"></i> CV İndir
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="floating-card floating-element magnetic">
+                        <div class="card-content">
+                            <i class="fas fa-code"></i>
+                            <h2>Frontend Development</h2>
+                            <p>Modern web teknolojileri</p>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-element magnetic delay-1">
+                        <div class="card-content">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h2>Responsive Design</h2>
+                            <p>Mobil uyumlu tasarım</p>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-element magnetic delay-2">
+                        <div class="card-content">
+                            <i class="fas fa-palette"></i>
+                            <h2>UI/UX Design</h2>
+                            <p>Kullanıcı odaklı tasarım</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                <h2 class="section-title">Hakkımda</h2>
+                <p class="section-subtitle">Kim olduğumu ve ne yaptığımı öğrenin</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                    <div class="about-card card-3d hover-lift">
+                        <h3>Yaratıcı Frontend Developer</h3>
+                        <p>
+                            3+ yıllık deneyimimle modern web teknolojileri kullanarak
+                            kullanıcı dostu ve görsel olarak etkileyici web uygulamaları geliştiriyorum.
+                            Her projede en iyi kullanıcı deneyimini sunmayı hedefliyorum.
+                        </p>
+                        <div class="stats">
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Tamamlanan Proje</span>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+                                <span class="stat-number">3+</span>
+                                <span class="stat-label">Yıl Deneyim</span>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="800">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Müşteri Memnuniyeti</span>
+                            </div>
+                        </div>
+                        <div class="about-actions" data-aos="fade-up" data-aos-delay="1000">
+                            <a href="about.html" class="btn btn-primary">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+                    <div class="image-container">
+                        <div class="profile-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Yeteneklerim</h2>
+                <p class="section-subtitle">Kullandığım teknolojiler ve araçlar</p>
+            </div>
+            <div class="skills-showcase">
+                <div class="skill-highlight">
+                    <div class="skill-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h4>React</h4>
+                    <p>Modern component-based development</p>
+                </div>
+                <div class="skill-highlight">
+                    <div class="skill-icon">
+                        <svg width="60" height="60" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2L25.09 14.26L38 16L25.09 17.74L20 30L14.91 17.74L2 16L14.91 14.26L20 2Z" fill="#2563eb"/>
+                            <path d="M20 8L22.36 15.64L30 18L22.36 20.36L20 28L17.64 20.36L10 18L17.64 15.64L20 8Z" fill="#1d4ed8"/>
+                        </svg>
+                    </div>
+                    <h4>Vue.js</h4>
+                    <p>Progressive framework expertise</p>
+                </div>
+                <div class="skill-highlight">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h4>JavaScript</h4>
+                    <p>ES6+ and modern features</p>
+                </div>
+            </div>
+            <div class="skills-action">
+                <a href="about.html#skills" class="btn btn-secondary">Tüm Yeteneklerim</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Hizmetlerim</h2>
+                <p class="section-subtitle">Size nasıl yardımcı olabilirim</p>
+            </div>
+            <div class="services-preview">
+                <div class="service-preview">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4>Web Geliştirme</h4>
+                    <p>Modern, responsive ve kullanıcı dostu web siteleri geliştiriyorum.</p>
+                    <div class="service-price">₺2,500'den başlayan fiyatlar</div>
+                </div>
+                <div class="service-preview">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h4>E-Ticaret Çözümleri</h4>
+                    <p>Güvenli ve hızlı e-ticaret platformları geliştiriyorum.</p>
+                    <div class="service-price">₺5,000'den başlayan fiyatlar</div>
+                </div>
+                <div class="service-preview">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Performans Optimizasyonu</h4>
+                    <p>Web sitenizin hızını artırıp kullanıcı deneyimini iyileştiriyorum.</p>
+                    <div class="service-price">₺1,000'den başlayan fiyatlar</div>
+                </div>
+            </div>
+            <div class="services-action">
+                <a href="services.html" class="btn btn-primary">Tüm Hizmetlerim</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projelerim</h2>
+                <p class="section-subtitle">Son çalışmalarım ve portföy örnekleri</p>
+            </div>
+            <div class="projects-showcase">
+                <div class="project-featured">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4>E-Commerce Platform</h4>
+                        <p>Modern e-ticaret platformu React ve Node.js ile geliştirildi. Responsive tasarım ve kullanıcı dostu arayüz.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-mini">
+                        <div class="project-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile Dashboard</h4>
+                        <p>Vue.js ile responsive dashboard</p>
+                    </div>
+                    <div class="project-mini">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Analytics App</h4>
+                        <p>Angular ile veri görselleştirme</p>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-action">
+                <a href="projects.html" class="btn btn-primary">Tüm Projelerim</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">İletişim</h2>
+                <p class="section-subtitle">Benimle iletişime geçin</p>
+            </div>
+            <div class="contact-preview">
+                <div class="contact-quick">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>developer@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefon</h4>
+                            <p>+90 555 123 45 67</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-action">
+                    <a href="contact.html" class="btn btn-primary">Detaylı İletişim</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Portfolio Yönetimi</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/translations.js"></script>
+    <style>
+        /* Admin Panel Specific Styles */
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+            background: var(--bg-secondary);
+        }
+        
+        .admin-sidebar {
+            width: 280px;
+            background: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .admin-main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem;
+        }
+        
+        .admin-header {
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .admin-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .admin-nav-item {
+            margin: 0.5rem 0;
+        }
+        
+        .admin-nav-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .admin-nav-link:hover,
+        .admin-nav-link.active {
+            background: var(--bg-secondary);
+            border-left-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .admin-nav-link i {
+            margin-right: 1rem;
+            width: 20px;
+        }
+        
+        .admin-content {
+            display: none;
+        }
+        
+        .admin-content.active {
+            display: block;
+        }
+        
+        .admin-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .admin-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+        
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .admin-table th,
+        .admin-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .admin-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .admin-table td {
+            color: var(--text-secondary);
+        }
+        
+        .admin-form {
+            max-width: 600px;
+        }
+        
+        .admin-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .admin-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .admin-form input,
+        .admin-form textarea,
+        .admin-form select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: border-color 0.3s ease;
+        }
+        
+        .admin-form input:focus,
+        .admin-form textarea:focus,
+        .admin-form select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn-admin {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-admin-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-admin-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-admin-danger {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-admin:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .admin-login {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+        }
+        
+        .login-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .login-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+        
+        .login-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .login-form button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .login-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .admin-sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .admin-main {
+                margin-left: 0;
+            }
+            
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="admin-login">
+        <div class="login-card">
+            <h2 class="login-title">Admin Girişi</h2>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Şifre" required>
+                </div>
+                <button type="submit">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-container" style="display: none;">
+        <!-- Sidebar -->
+        <nav class="admin-sidebar">
+            <div style="padding: 0 2rem 2rem;">
+                <h3 style="color: var(--text-color); margin-bottom: 0.5rem;">Admin Panel</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Portfolio Yönetimi</p>
+            </div>
+            
+            <ul class="admin-nav">
+                <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link" data-section="projects">
+                        <i class="fas fa-project-diagram"></i>
+                        Projeler
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link" data-section="blog">
+                        <i class="fas fa-blog"></i>
+                        Blog Yazıları
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link" data-section="messages">
+                        <i class="fas fa-envelope"></i>
+                        Mesajlar
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        Ayarlar
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link" data-section="analytics">
+                        <i class="fas fa-chart-bar"></i>
+                        Analitik
+                    </a>
+                </li>
+            </ul>
+            
+            <div style="padding: 2rem; margin-top: auto;">
+                <button class="btn-admin btn-admin-secondary" onclick="logout()" style="width: 100%;">
+                    <i class="fas fa-sign-out-alt"></i> Çıkış Yap
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <div class="admin-header">
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">Portfolio yönetim paneline hoş geldiniz</p>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="admin-content active">
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Toplam Proje</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Blog Yazısı</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Gelen Mesaj</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1,234</span>
+                        <span class="stat-label">Toplam Ziyaretçi</span>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3>Son Aktiviteler</h3>
+                    <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px;">
+                        <p style="color: var(--text-secondary); margin: 0;">• Yeni proje eklendi: "E-ticaret Platformu"</p>
+                        <p style="color: var(--text-secondary); margin: 0.5rem 0;">• Blog yazısı yayınlandı: "React 18'de Yeni Özellikler"</p>
+                        <p style="color: var(--text-secondary); margin: 0;">• 3 yeni mesaj alındı</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div id="projects" class="admin-content">
+                <div class="admin-card">
+                    <h3>Proje Yönetimi</h3>
+                    <button class="btn-admin btn-admin-primary" onclick="showAddProject()">
+                        <i class="fas fa-plus"></i> Yeni Proje Ekle
+                    </button>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Proje Adı</th>
+                                <th>Kategori</th>
+                                <th>Durum</th>
+                                <th>Tarih</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>E-ticaret Platformu</td>
+                                <td>React</td>
+                                <td><span style="color: #10b981;">Aktif</span></td>
+                                <td>2024-01-15</td>
+                                <td>
+                                    <button class="btn-admin btn-admin-secondary" style="padding: 0.5rem; margin-right: 0.5rem;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-admin btn-admin-danger" style="padding: 0.5rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dashboard Uygulaması</td>
+                                <td>Vue.js</td>
+                                <td><span style="color: #f59e0b;">Geliştiriliyor</span></td>
+                                <td>2024-01-10</td>
+                                <td>
+                                    <button class="btn-admin btn-admin-secondary" style="padding: 0.5rem; margin-right: 0.5rem;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-admin btn-admin-danger" style="padding: 0.5rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Blog Section -->
+            <div id="blog" class="admin-content">
+                <div class="admin-card">
+                    <h3>Blog Yönetimi</h3>
+                    <button class="btn-admin btn-admin-primary" onclick="showAddBlog()">
+                        <i class="fas fa-plus"></i> Yeni Blog Yazısı
+                    </button>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Başlık</th>
+                                <th>Kategori</th>
+                                <th>Durum</th>
+                                <th>Tarih</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>React 18'de Yeni Özellikler</td>
+                                <td>React</td>
+                                <td><span style="color: #10b981;">Yayında</span></td>
+                                <td>2024-01-20</td>
+                                <td>
+                                    <button class="btn-admin btn-admin-secondary" style="padding: 0.5rem; margin-right: 0.5rem;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-admin btn-admin-danger" style="padding: 0.5rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Vue 3 Composition API</td>
+                                <td>Vue.js</td>
+                                <td><span style="color: #f59e0b;">Taslak</span></td>
+                                <td>2024-01-18</td>
+                                <td>
+                                    <button class="btn-admin btn-admin-secondary" style="padding: 0.5rem; margin-right: 0.5rem;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-admin btn-admin-danger" style="padding: 0.5rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Messages Section -->
+            <div id="messages" class="admin-content">
+                <div class="admin-card">
+                    <h3>Gelen Mesajlar</h3>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Gönderen</th>
+                                <th>Email</th>
+                                <th>Konu</th>
+                                <th>Tarih</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ahmet Yılmaz</td>
+                                <td>ahmet@example.com</td>
+                                <td>Web Sitesi Projesi</td>
+                                <td>2024-01-22</td>
+                                <td><span style="color: #f59e0b;">Okunmadı</span></td>
+                                <td>
+                                    <button class="btn-admin btn-admin-primary" style="padding: 0.5rem; margin-right: 0.5rem;">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-admin btn-admin-danger" style="padding: 0.5rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mehmet Kaya</td>
+                                <td>mehmet@example.com</td>
+                                <td>E-ticaret Sitesi</td>
+                                <td>2024-01-21</td>
+                                <td><span style="color: #10b981;">Okundu</span></td>
+                                <td>
+                                    <button class="btn-admin btn-admin-primary" style="padding: 0.5rem; margin-right: 0.5rem;">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-admin btn-admin-danger" style="padding: 0.5rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings" class="admin-content">
+                <div class="admin-card">
+                    <h3>Site Ayarları</h3>
+                    
+                    <form class="admin-form">
+                        <div class="form-group">
+                            <label>Site Başlığı</label>
+                            <input type="text" value="Frontend Developer Portfolio">
+                        </div>
+                        <div class="form-group">
+                            <label>Site Açıklaması</label>
+                            <textarea rows="3">Profesyonel Frontend Developer. React, Vue.js, JavaScript ile modern web uygulamaları geliştiriyorum.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Adresi</label>
+                            <input type="email" value="developer@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="tel" value="+90 555 123 45 67">
+                        </div>
+                        <div class="admin-actions">
+                            <button type="submit" class="btn-admin btn-admin-primary">Ayarları Kaydet</button>
+                            <button type="button" class="btn-admin btn-admin-secondary">Sıfırla</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div id="analytics" class="admin-content">
+                <div class="admin-card">
+                    <h3>Site Analitikleri</h3>
+                    
+                    <div class="admin-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">1,234</span>
+                            <span class="stat-label">Bu Ay Ziyaretçi</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">2,456</span>
+                            <span class="stat-label">Sayfa Görüntüleme</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">3:45</span>
+                            <span class="stat-label">Ortalama Süre</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">68%</span>
+                            <span class="stat-label">Bounce Rate</span>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 10px; text-align: center;">
+                        <p style="color: var(--text-secondary);">Detaylı analitik grafikleri burada görüntülenecek</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Google Analytics entegrasyonu ile</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="js/admin-api.js"></script>
+    <script>
+        // Admin Panel JavaScript
+        let isLoggedIn = false;
+        
+        // Login functionality
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple authentication (in real app, use proper authentication)
+            if (username === 'admin' && password === 'admin123') {
+                isLoggedIn = true;
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'flex';
+                
+                // Track admin login
+                if (typeof trackEvent === 'function') {
+                    trackEvent('admin_login', 'admin', 'success', 1);
+                }
+            } else {
+                alert('Kullanıcı adı veya şifre hatalı!');
+                
+                // Track failed login
+                if (typeof trackEvent === 'function') {
+                    trackEvent('admin_login', 'admin', 'failed', 1);
+                }
+            }
+        });
+        
+        // Navigation functionality
+        document.querySelectorAll('.admin-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const section = this.getAttribute('data-section');
+                const title = this.textContent.trim();
+                
+                // Update active nav
+                document.querySelectorAll('.admin-nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update content
+                document.querySelectorAll('.admin-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(section).classList.add('active');
+                
+                // Update page title
+                document.getElementById('pageTitle').textContent = title;
+                
+                // Update subtitle
+                const subtitles = {
+                    'dashboard': 'Portfolio yönetim paneline hoş geldiniz',
+                    'projects': 'Projelerinizi yönetin ve düzenleyin',
+                    'blog': 'Blog yazılarınızı yönetin',
+                    'messages': 'Gelen mesajları görüntüleyin',
+                    'settings': 'Site ayarlarını düzenleyin',
+                    'analytics': 'Site analitiklerini görüntüleyin'
+                };
+                document.getElementById('pageSubtitle').textContent = subtitles[section] || '';
+                
+                // Track navigation
+                if (typeof trackEvent === 'function') {
+                    trackEvent('admin_navigation', 'admin', section, 1);
+                }
+            });
+        });
+        
+        // Logout functionality
+        function logout() {
+            isLoggedIn = false;
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('adminPanel').style.display = 'none';
+            
+            // Clear form
+            document.getElementById('loginForm').reset();
+            
+            // Track logout
+            if (typeof trackEvent === 'function') {
+                trackEvent('admin_logout', 'admin', 'success', 1);
+            }
+        }
+        
+        // Add project modal
+        function showAddProject() {
+            alert('Yeni proje ekleme formu burada açılacak');
+        }
+        
+        // Add blog modal
+        function showAddBlog() {
+            alert('Yeni blog yazısı ekleme formu burada açılacak');
+        }
+        
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+</body>
+</html>

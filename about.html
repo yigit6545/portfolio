@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda - Frontend Developer Portfolio | Deneyim ve Yetenekler</title>
+    <meta name="description" content="Frontend Developer olarak 3+ yıllık deneyimim, yeteneklerim ve kariyer yolculuğum. React, Vue.js, JavaScript uzmanı.">
+    <meta name="keywords" content="frontend developer, hakkımda, deneyim, yetenekler, react, vue.js, javascript, kariyer">
+    <meta name="author" content="Frontend Developer">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://devportfolio.com/about.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hakkımda - Frontend Developer Portfolio">
+    <meta property="og:description" content="Frontend Developer olarak 3+ yıllık deneyimim, yeteneklerim ve kariyer yolculuğum.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://devportfolio.com/about.html">
+    <meta property="og:image" content="https://devportfolio.com/images/about-og.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/translations.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">DevPortfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle">
+                    <span class="lang-text">TR</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">Hakkımda</h1>
+                <p class="page-subtitle">Kim olduğumu ve ne yaptığımı öğrenin</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Ana Sayfa</a>
+                    <span>/</span>
+                    <span>Hakkımda</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-detail">
+        <div class="container">
+            <div class="about-detail-content">
+                <div class="about-text">
+                    <div class="about-card">
+                        <h2>Yaratıcı Frontend Developer</h2>
+                        <p>
+                            3+ yıllık deneyimimle modern web teknolojileri kullanarak 
+                            kullanıcı dostu ve görsel olarak etkileyici web uygulamaları geliştiriyorum. 
+                            Her projede en iyi kullanıcı deneyimini sunmayı hedefliyorum.
+                        </p>
+                        <p>
+                            Frontend development alanında uzmanlaşmış bir geliştirici olarak, 
+                            React, Vue.js ve modern JavaScript teknolojileri ile 
+                            responsive ve performanslı web uygulamaları oluşturuyorum.
+                        </p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Tamamlanan Proje</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3+</span>
+                                <span class="stat-label">Yıl Deneyim</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Müşteri Memnuniyeti</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="profile-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Deneyim Geçmişim</h2>
+                <p class="section-subtitle">Kariyer yolculuğum ve önemli kilometre taşları</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Devam Ediyor</div>
+                        <h3>Senior Frontend Developer</h3>
+                        <h4>TechCorp Solutions</h4>
+                        <p>Modern web uygulamaları geliştirme, React ve Vue.js projelerinde liderlik, takım koordinasyonu ve teknik danışmanlık.</p>
+                        <ul class="timeline-skills">
+                            <li>React</li>
+                            <li>Vue.js</li>
+                            <li>TypeScript</li>
+                            <li>Team Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - 2024</div>
+                        <h3>Frontend Developer</h3>
+                        <h4>Digital Agency Pro</h4>
+                        <p>Responsive web tasarımları, e-ticaret projeleri ve kullanıcı deneyimi optimizasyonu üzerine çalıştım.</p>
+                        <ul class="timeline-skills">
+                            <li>JavaScript</li>
+                            <li>CSS3</li>
+                            <li>E-commerce</li>
+                            <li>UX Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2022</div>
+                        <h3>Junior Frontend Developer</h3>
+                        <h4>StartupTech</h4>
+                        <p>İlk profesyonel deneyimim. HTML, CSS ve JavaScript temellerini öğrendim ve ilk projelerimi geliştirdim.</p>
+                        <ul class="timeline-skills">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2017 - 2021</div>
+                        <h3>Bilgisayar Mühendisliği</h3>
+                        <h4>İstanbul Teknik Üniversitesi</h4>
+                        <p>Yazılım geliştirme, algoritma tasarımı ve web teknolojileri konularında kapsamlı eğitim aldım.</p>
+                        <ul class="timeline-skills">
+                            <li>Programming</li>
+                            <li>Algorithms</li>
+                            <li>Web Technologies</li>
+                            <li>Database Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Yeteneklerim</h2>
+                <p class="section-subtitle">Kullandığım teknolojiler ve araçlar</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 2L25.09 14.26L38 16L25.09 17.74L20 30L14.91 17.74L2 16L14.91 14.26L20 2Z" fill="#2563eb"/>
+                                <path d="M20 8L22.36 15.64L30 18L22.36 20.36L20 28L17.64 20.36L10 18L17.64 15.64L20 8Z" fill="#1d4ed8"/>
+                            </svg>
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-angular"></i>
+                            <span>Angular</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Frameworks</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-sass"></i>
+                            <span>SASS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-figma"></i>
+                            <span>Figma</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-npm"></i>
+                            <span>NPM</span>
+                        </div>
+                        <div class="skill-item">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 2L35 12L35 28L20 38L5 28L5 12L20 2Z" fill="#2563eb"/>
+                                <path d="M20 8L30 15L30 25L20 32L10 25L10 15L20 8Z" fill="#1d4ed8"/>
+                                <path d="M20 12L25 16L25 24L20 28L15 24L15 16L20 12Z" fill="#ffffff"/>
+                            </svg>
+                            <span>Webpack</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sertifikalarım</h2>
+                <p class="section-subtitle">Eğitim ve sertifikalarım</p>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>JavaScript Advanced</h3>
+                        <p class="certificate-issuer">Udemy</p>
+                        <p class="certificate-date">Aralık 2024</p>
+                        <div class="certificate-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>Sertifika</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>React Development</h3>
+                        <p class="certificate-issuer">Coursera</p>
+                        <p class="certificate-date">Kasım 2024</p>
+                        <div class="certificate-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>Sertifika</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Frontend Development</h3>
+                        <p class="certificate-issuer">FreeCodeCamp</p>
+                        <p class="certificate-date">Ekim 2024</p>
+                        <div class="certificate-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>Sertifika</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>CSS Advanced</h3>
+                        <p class="certificate-issuer">MDN Web Docs</p>
+                        <p class="certificate-date">Eylül 2024</p>
+                        <div class="certificate-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>Sertifika</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Müşteri Yorumları</h2>
+                <p class="section-subtitle">Birlikte çalıştığım kişilerin görüşleri</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Harika bir frontend developer! Projemizi zamanında ve kaliteli bir şekilde teslim etti. Kullanıcı deneyimi konusunda çok titiz."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Ahmet Yılmaz</h4>
+                                <span>CEO, TechStart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Modern teknolojileri çok iyi kullanıyor. Responsive tasarım konusunda mükemmel. Kesinlikle tekrar çalışmak isterim."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Elif Demir</h4>
+                                <span>Designer, CreativeStudio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"E-ticaret projemizde harika iş çıkardı. Performans optimizasyonu konusunda çok başarılı. Müşterilerimiz çok memnun."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Mehmet Kaya</h4>
+                                <span>Founder, ShopOnline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Projenizde Birlikte Çalışalım</h2>
+                <p>Modern web teknolojileri ile hayalinizdeki projeyi gerçeğe dönüştürelim.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">İletişime Geç</a>
+                    <a href="projects.html" class="btn btn-secondary">Projelerimi Gör</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

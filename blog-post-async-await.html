@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await vs Promises: Hangisini Kullanmalı? - Frontend Developer Blog</title>
+    <meta name="description" content="JavaScript'te asenkron programlama için async/await ve Promises arasındaki farklar, avantajları ve kullanım senaryoları.">
+    <meta name="keywords" content="async await, promises, javascript, asynchronous programming">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">DevPortfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle">
+                    <span class="lang-text">TR</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Ana Sayfa</a>
+                    <span>/</span>
+                    <a href="blog.html">Blog</a>
+                    <span>/</span>
+                    <span>Async/Await vs Promises</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Content -->
+    <section class="blog-post-detail">
+        <div class="container">
+            <div class="blog-post-layout">
+                <!-- Main Content -->
+                <article class="blog-post-main">
+                    <!-- Post Header -->
+                    <header class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">JavaScript</span>
+                            <span class="post-date">1 Aralık 2024</span>
+                            <span class="post-read-time">6 dk okuma</span>
+                        </div>
+                        <h1 class="post-title">Async/Await vs Promises: Hangisini Kullanmalı?</h1>
+                        <div class="post-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <span class="author-name">Frontend Developer</span>
+                                <span class="author-title">Senior Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">Async/Await</span>
+                            <span class="tag">Promises</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </header>
+
+                    <!-- Post Image -->
+                    <div class="post-image">
+                        <div class="post-placeholder">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-intro">
+                            <p class="lead">
+                                JavaScript'te asenkron programlama için async/await ve Promises arasındaki farklar, 
+                                avantajları ve hangi durumda hangisini kullanmanız gerektiği hakkında detaylı rehber.
+                            </p>
+                        </div>
+
+                        <h2>Promises Nedir?</h2>
+                        <p>
+                            Promises, asenkron işlemlerin sonucunu temsil eden objelerdir. 
+                            Bir işlemin başarılı olup olmadığını ve sonucunu handle etmenizi sağlar.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Promises Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>function fetchUserData(userId) {
+  return fetch(`/api/users/${userId}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('User data:', data);
+      return data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      throw error;
+    });
+}</code></pre>
+                        </div>
+
+                        <h2>Async/Await Nedir?</h2>
+                        <p>
+                            Async/await, Promises'i daha okunabilir ve senkron kod gibi yazmanızı sağlar. 
+                            Async function'lar otomatik olarak Promise döndürür.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Async/Await Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>async function fetchUserData(userId) {
+  try {
+    const response = await fetch(`/api/users/${userId}`);
+    
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    const data = await response.json();
+    console.log('User data:', data);
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+}</code></pre>
+                        </div>
+
+                        <h2>Avantajlar ve Dezavantajlar</h2>
+                        <p>
+                            Her iki yaklaşımın da kendine özgü avantajları ve dezavantajları vardır.
+                        </p>
+
+                        <div class="conclusion-box">
+                            <h3>Promises Avantajları</h3>
+                            <ul>
+                                <li>Daha eski browser desteği</li>
+                                <li>Chain yapısı ile akış kontrolü</li>
+                                <li>Promise.all() ile paralel işlemler</li>
+                                <li>Daha az memory kullanımı</li>
+                            </ul>
+                        </div>
+
+                        <div class="conclusion-box">
+                            <h3>Async/Await Avantajları</h3>
+                            <ul>
+                                <li>Daha okunabilir kod</li>
+                                <li>Senkron kod gibi yazım</li>
+                                <li>Daha kolay error handling</li>
+                                <li>Debugging daha kolay</li>
+                            </ul>
+                        </div>
+
+                        <h2>Hangi Durumda Hangisini Kullanmalı?</h2>
+                        <p>
+                            Proje gereksinimlerinize göre hangi yaklaşımı kullanacağınıza karar verebilirsiniz.
+                        </p>
+
+                        <div class="info-box">
+                            <div class="info-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Kullanım Senaryoları</h3>
+                                <p>
+                                    Async/await: Yeni projeler, okunabilirlik önemli<br>
+                                    Promises: Eski browser desteği gerekli, chain yapısı tercih ediliyor
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2>Paralel İşlemler</h2>
+                        <p>
+                            Birden fazla asenkron işlemi paralel olarak çalıştırmak için 
+                            Promise.all() kullanabilirsiniz.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Paralel İşlemler</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>// Promise.all ile paralel işlemler
+async function fetchMultipleData() {
+  try {
+    const [users, posts, comments] = await Promise.all([
+      fetch('/api/users').then(res => res.json()),
+      fetch('/api/posts').then(res => res.json()),
+      fetch('/api/comments').then(res => res.json())
+    ]);
+    
+    return { users, posts, comments };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+}</code></pre>
+                        </div>
+
+                        <h2>Sonuç</h2>
+                        <p>
+                            Async/await ve Promises, JavaScript'te asenkron programlama için güçlü araçlardır. 
+                            Her ikisini de bilmek ve proje gereksinimlerinize göre seçim yapmak önemlidir.
+                        </p>
+
+                        <div class="conclusion-box">
+                            <h3>Özet</h3>
+                            <ul>
+                                <li>Promises: Eski browser desteği, chain yapısı</li>
+                                <li>Async/await: Okunabilirlik, kolay debugging</li>
+                                <li>Her ikisini de bilmek önemli</li>
+                                <li>Proje gereksinimlerine göre seçim yapın</li>
+                                <li>Paralel işlemler için Promise.all() kullanın</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Post Footer -->
+                    <footer class="post-footer">
+                        <div class="post-share">
+                            <h3>Bu yazıyı paylaş</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn twitter">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                                <a href="#" class="share-btn linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="#" class="share-btn facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="post-navigation">
+                            <a href="blog-post-react-performance.html" class="nav-link prev">
+                                <i class="fas fa-arrow-left"></i>
+                                <div class="nav-content">
+                                    <span class="nav-label">Önceki Yazı</span>
+                                    <span class="nav-title">React Performance Optimizasyonu</span>
+                                </div>
+                            </a>
+                            <a href="blog-post-react-18.html" class="nav-link next">
+                                <div class="nav-content">
+                                    <span class="nav-label">Sonraki Yazı</span>
+                                    <span class="nav-title">React 18'de Yeni Özellikler</span>
+                                </div>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </footer>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Table of Contents -->
+                    <div class="sidebar-widget">
+                        <h3>İçindekiler</h3>
+                        <nav class="table-of-contents">
+                            <ul>
+                                <li><a href="#promises">Promises Nedir?</a></li>
+                                <li><a href="#async-await">Async/Await Nedir?</a></li>
+                                <li><a href="#advantages">Avantajlar ve Dezavantajlar</a></li>
+                                <li><a href="#when-to-use">Hangi Durumda Hangisini?</a></li>
+                                <li><a href="#parallel">Paralel İşlemler</a></li>
+                                <li><a href="#conclusion">Sonuç</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Related Posts -->
+                    <div class="sidebar-widget">
+                        <h3>İlgili Yazılar</h3>
+                        <div class="related-posts">
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>ES2024'te Gelen Yeni Özellikler</h4>
+                                    <span class="related-post-date">10 Aralık 2024</span>
+                                </div>
+                            </div>
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>React Performance Optimizasyonu</h4>
+                                    <span class="related-post-date">3 Aralık 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Newsletter</h3>
+                        <p>Yeni yazılarımdan haberdar olmak için abone olun.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email adresiniz" required>
+                            <button type="submit">Abone Ol</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        }
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                alert('Newsletter\'a başarıyla abone oldunuz!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
+

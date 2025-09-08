@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Performance Optimizasyonu: Best Practices - Frontend Developer Blog</title>
+    <meta name="description" content="React uygulamalarınızı nasıl optimize edersiniz? Memoization, lazy loading, code splitting ve daha fazlası.">
+    <meta name="keywords" content="react, performance, optimization, memoization, lazy loading">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">DevPortfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav-home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-translate="nav-about">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link" data-translate="nav-projects">Projeler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" data-translate="nav-services">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-translate="nav-contact">İletişim</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle">
+                    <span class="lang-text">TR</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Ana Sayfa</a>
+                    <span>/</span>
+                    <a href="blog.html">Blog</a>
+                    <span>/</span>
+                    <span>React Performance Optimizasyonu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Content -->
+    <section class="blog-post-detail">
+        <div class="container">
+            <div class="blog-post-layout">
+                <!-- Main Content -->
+                <article class="blog-post-main">
+                    <!-- Post Header -->
+                    <header class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">React</span>
+                            <span class="post-date">3 Aralık 2024</span>
+                            <span class="post-read-time">9 dk okuma</span>
+                        </div>
+                        <h1 class="post-title">React Performance Optimizasyonu: Best Practices</h1>
+                        <div class="post-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <span class="author-name">Frontend Developer</span>
+                                <span class="author-title">Senior Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Performance</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                    </header>
+
+                    <!-- Post Image -->
+                    <div class="post-image">
+                        <div class="post-placeholder">
+                            <i class="fab fa-react"></i>
+                        </div>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-intro">
+                            <p class="lead">
+                                React uygulamalarınızı optimize etmek, kullanıcı deneyimini önemli ölçüde iyileştirir. 
+                                Bu yazıda React performance optimizasyonu için en etkili teknikleri inceleyeceğiz.
+                            </p>
+                        </div>
+
+                        <h2>React.memo ile Component Memoization</h2>
+                        <p>
+                            React.memo, component'ların gereksiz re-render'larını önler. 
+                            Props değişmediği sürece component yeniden render edilmez.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">React.memo Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>import React, { memo } from 'react';
+
+const ExpensiveComponent = memo(({ data, onUpdate }) => {
+  console.log('ExpensiveComponent rendered');
+  
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;{data.title}&lt;/h2&gt;
+      &lt;p&gt;{data.description}&lt;/p&gt;
+      &lt;button onClick={onUpdate}&gt;Update&lt;/button&gt;
+    &lt;/div&gt;
+  );
+});
+
+export default ExpensiveComponent;</code></pre>
+                        </div>
+
+                        <h2>useMemo ile Hesaplama Memoization</h2>
+                        <p>
+                            useMemo, pahalı hesaplamaları cache'ler ve sadece dependency'ler değiştiğinde 
+                            yeniden hesaplar.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">useMemo Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>import React, { useMemo } from 'react';
+
+function ExpensiveCalculation({ items }) {
+  const expensiveValue = useMemo(() => {
+    console.log('Expensive calculation running...');
+    return items.reduce((sum, item) => sum + item.value, 0);
+  }, [items]);
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Total: {expensiveValue}&lt;/h2&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+
+                        <h2>useCallback ile Function Memoization</h2>
+                        <p>
+                            useCallback, function'ları memoize eder ve sadece dependency'ler değiştiğinde 
+                            yeni function oluşturur.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">useCallback Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>import React, { useCallback, useState } from 'react';
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState('');
+
+  const handleClick = useCallback(() => {
+    setCount(c => c + 1);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;input 
+        value={name} 
+        onChange={(e) => setName(e.target.value)} 
+      /&gt;
+      &lt;ChildComponent onClick={handleClick} /&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+
+                        <h2>Lazy Loading ile Code Splitting</h2>
+                        <p>
+                            Lazy loading, component'ları ihtiyaç duyulduğunda yükler ve 
+                            initial bundle size'ı küçültür.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Lazy Loading Örneği</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>import React, { lazy, Suspense } from 'react';
+
+const LazyComponent = lazy(() => import('./LazyComponent'));
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;My App&lt;/h1&gt;
+      &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+        &lt;LazyComponent /&gt;
+      &lt;/Suspense&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Önemli Not</h3>
+                                <p>
+                                    Performance optimizasyonu yaparken önce problemi tespit edin. 
+                                    React DevTools Profiler ile hangi component'ların gereksiz render 
+                                    yaptığını görebilirsiniz.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2>Virtual Scrolling</h2>
+                        <p>
+                            Büyük listeler için virtual scrolling kullanarak sadece görünür 
+                            elementleri render edebilirsiniz.
+                        </p>
+
+                        <div class="conclusion-box">
+                            <h3>Performance İpuçları</h3>
+                            <ul>
+                                <li>React.memo ile component memoization</li>
+                                <li>useMemo ile hesaplama memoization</li>
+                                <li>useCallback ile function memoization</li>
+                                <li>Lazy loading ile code splitting</li>
+                                <li>Virtual scrolling büyük listeler için</li>
+                                <li>React DevTools Profiler kullanın</li>
+                            </ul>
+                        </div>
+
+                        <h2>Sonuç</h2>
+                        <p>
+                            React performance optimizasyonu, kullanıcı deneyimini önemli ölçüde iyileştirir. 
+                            Doğru teknikleri kullanarak daha hızlı ve responsive uygulamalar geliştirebilirsiniz.
+                        </p>
+
+                        <div class="conclusion-box">
+                            <h3>Özet</h3>
+                            <ul>
+                                <li>Memoization teknikleri kullanın</li>
+                                <li>Code splitting ile bundle size'ı küçültün</li>
+                                <li>Virtual scrolling büyük listeler için</li>
+                                <li>React DevTools ile profil yapın</li>
+                                <li>Gereksiz re-render'ları önleyin</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Post Footer -->
+                    <footer class="post-footer">
+                        <div class="post-share">
+                            <h3>Bu yazıyı paylaş</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn twitter">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                                <a href="#" class="share-btn linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="#" class="share-btn facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="post-navigation">
+                            <a href="blog-post-job-guide.html" class="nav-link prev">
+                                <i class="fas fa-arrow-left"></i>
+                                <div class="nav-content">
+                                    <span class="nav-label">Önceki Yazı</span>
+                                    <span class="nav-title">Frontend Developer İş Rehberi</span>
+                                </div>
+                            </a>
+                            <a href="blog-post-async-await.html" class="nav-link next">
+                                <div class="nav-content">
+                                    <span class="nav-label">Sonraki Yazı</span>
+                                    <span class="nav-title">Async/Await vs Promises</span>
+                                </div>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </footer>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Table of Contents -->
+                    <div class="sidebar-widget">
+                        <h3>İçindekiler</h3>
+                        <nav class="table-of-contents">
+                            <ul>
+                                <li><a href="#react-memo">React.memo ile Component Memoization</a></li>
+                                <li><a href="#useMemo">useMemo ile Hesaplama Memoization</a></li>
+                                <li><a href="#useCallback">useCallback ile Function Memoization</a></li>
+                                <li><a href="#lazy-loading">Lazy Loading ile Code Splitting</a></li>
+                                <li><a href="#virtual-scrolling">Virtual Scrolling</a></li>
+                                <li><a href="#conclusion">Sonuç</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Related Posts -->
+                    <div class="sidebar-widget">
+                        <h3>İlgili Yazılar</h3>
+                        <div class="related-posts">
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>React 18'de Yeni Özellikler</h4>
+                                    <span class="related-post-date">15 Aralık 2024</span>
+                                </div>
+                            </div>
+                            <div class="related-post">
+                                <div class="related-post-image">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>Async/Await vs Promises</h4>
+                                    <span class="related-post-date">1 Aralık 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Newsletter</h3>
+                        <p>Yeni yazılarımdan haberdar olmak için abone olun.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email adresiniz" required>
+                            <button type="submit">Abone Ol</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">DevPortfolio</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Frontend Developer Portfolio. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        }
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                alert('Newsletter\'a başarıyla abone oldunuz!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,80 @@
+# Advanced Robots.txt Configuration
+# Comprehensive crawling instructions for search engines
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://devportfolio.com/sitemap.xml
+
+# Disallow sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /uploads/
+Disallow: /logs/
+Disallow: /backup/
+Disallow: /temp/
+Disallow: /cache/
+
+# Disallow file extensions
+Disallow: /*.log
+Disallow: /*.sql
+Disallow: /*.conf
+Disallow: /*.bak
+Disallow: /*.inc
+Disallow: /*.sh
+Disallow: /*.ini
+Disallow: /*.env
+Disallow: /*.htaccess
+Disallow: /*.htpasswd
+
+# Allow important files
+Allow: /manifest.json
+Allow: /sw.js
+Allow: /styles.css
+Allow: /script.js
+Allow: /images/
+Allow: /js/
+Allow: /css/
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 3
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Block malicious bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Host directive
+Host: https://devportfolio.com
+
